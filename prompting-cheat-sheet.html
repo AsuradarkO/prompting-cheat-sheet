@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Token-Efficient Prompting — Cheat Sheet</title>
+<style>
+  :root { --ink:#2b2620; --paper:#faf7f1; --accent:#6b4fa1; --soft:#efe8f7; --muted:#8a8378; --line:#e5ded2; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:Georgia,serif; background:var(--paper); color:var(--ink); line-height:1.65; padding:36px 22px 60px; }
+  .sheet { max-width:720px; margin:0 auto; }
+  h1 { font-size:30px; letter-spacing:1px; margin-bottom:4px; }
+  .sub { font-style:italic; color:var(--muted); margin-bottom:26px; }
+  .rule { background:var(--soft); border-left:4px solid var(--accent); border-radius:0 10px 10px 0; padding:14px 18px; margin:16px 0; }
+  .rule h2 { font-size:18px; margin-bottom:4px; }
+  .rule h2 .n { display:inline-block; background:var(--accent); color:#fff; width:26px; height:26px; border-radius:50%; text-align:center; line-height:26px; font-size:14px; margin-right:8px; font-family:-apple-system,'Segoe UI',sans-serif; }
+  .rule p { font-size:15.5px; }
+  .rule .ex { font-family:-apple-system,'Segoe UI',sans-serif; font-size:13px; margin-top:8px; }
+  .bad { color:#b33737; text-decoration:line-through; }
+  .good { color:#2e8b57; font-weight:600; }
+  .demo { border:1px dashed var(--line); border-radius:10px; padding:16px 20px; margin:22px 0; font-size:15px; }
+  .demo h2 { font-size:18px; margin-bottom:8px; }
+  .foot { text-align:center; color:var(--muted); font-size:13px; margin-top:30px; font-family:-apple-system,'Segoe UI',sans-serif; }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <h1>⚡ Token-Efficient Prompting</h1>
+  <p class="sub">Cheat sheet — every token should earn its place.</p>
+
+  <div class="rule"><h2><span class="n">1</span>Lead with the verb</h2>
+    <p>Start with what you want, not background.</p>
+    <p class="ex"><span class="bad">"Hi, I was wondering if you could please help me summarize…"</span><br><span class="good">"Summarize in 3 bullets:"</span></p></div>
+
+  <div class="rule"><h2><span class="n">2</span>Dictate the output shape</h2>
+    <p>Constrain length and format up front — it prevents rambling you'll pay to trim later.</p>
+    <p class="ex"><span class="good">"Reply in 5 bullets, max 15 words each."</span></p></div>
+
+  <div class="rule"><h2><span class="n">3</span>Cut politeness padding</h2>
+    <p>"Please," "thank you so much," "I'd really appreciate it" — tokens spent, zero effect on quality.</p></div>
+
+  <div class="rule"><h2><span class="n">4</span>Show, don't describe</h2>
+    <p>One 3-line example of the format beats 100 words explaining it.</p></div>
+
+  <div class="rule"><h2><span class="n">5</span>Never restate</h2>
+    <p>In an ongoing chat, <span class="good">"same format as above"</span> replaces a whole paragraph.</p></div>
+
+  <div class="rule"><h2><span class="n">6</span>Split big tasks</h2>
+    <p>One mega-prompt with 8 requirements → bloated answer. Chain it: <span class="good">draft → "tighten" → "check X."</span></p></div>
+
+  <div class="rule"><h2><span class="n">7</span>Describe fully: goal, audience, format, constraints</h2>
+    <p>The model can't see what you don't say. Every missing detail (who it's for, how long, what tone, what to avoid) gets filled with a guess — and you pay to fix the guess.</p>
+    <p class="ex"><span class="bad">"Write an email about the meeting."</span><br><span class="good">"Write a 4-sentence email to my boss: reschedule Tuesday's meeting to Thursday 2pm, polite but brief."</span></p></div>
+
+  <div class="rule"><h2><span class="n">8</span>Discern before you ship</h2>
+    <p>Delegation decides <em>before</em> (what to hand off); Discernment judges <em>after</em> (is this output actually right?). AI is fluent, not honest — it will state guesses with total confidence.</p>
+    <p class="ex"><span class="good">"Verify every fact and number before this goes out — the signature on it is yours, not the model's."</span></p></div>
+
+  <div class="rule"><h2><span class="n">9</span>One persona per prompt</h2>
+    <p>"Strict ATS" and "senior recruiter" in one prompt pull opposite directions — a keyword parser and a human judge score differently. Muddled role, muddled output. Sequence them or pick one.</p>
+    <p class="ex"><span class="bad">"Act as an ATS and a senior recruiter…"</span><br><span class="good">"Act as a senior recruiter (not a keyword counter)…"</span></p></div>
+
+  <div class="rule"><h2><span class="n">10</span>No fake-precision scores</h2>
+    <p>A 0–100% "match score" is invented authority — a confident guess dressed as measurement. Ask for the decision the score was supposed to inform instead.</p>
+    <p class="ex"><span class="bad">"Give me a Match Score (0-100%)."</span><br><span class="good">"No score — list the 5 gaps that would actually cost me the interview."</span></p></div>
+
+  <div class="rule"><h2><span class="n">11</span>Demand replacement text, not advice</h2>
+    <p>"Suggest how to fix it" leaves the writing on you. Make the model do the work: quote the offending line and hand back the rewritten fix.</p>
+    <p class="ex"><span class="bad">"Suggest how to fix each red flag."</span><br><span class="good">"Quote the line, rate severity, give the rewritten replacement text."</span></p></div>
+
+  <div class="rule"><h2><span class="n">12</span>Prohibitions need an outlet</h2>
+    <p>"Don't invent metrics" fighting "be measurable" — under pressure the model quietly invents anyway. Give it the approved alternative: a placeholder you fill in.</p>
+    <p class="ex"><span class="good">"Where a metric would help, write [ADD NUMBER: what to measure]."</span></p></div>
+
+  <div class="rule"><h2><span class="n">13</span>One job per prompt — but different readers count as different jobs</h2>
+    <p>Two prompts with the same inputs aren't duplicates if they model different judges. An ATS parser and a senior recruiter reading the same resume-vs-JD are two stages of the real pipeline, not one question asked twice. <em>Correction 2026-10-12: Vince caught me merging these — the machine gate and the human second look stay split.</em></p></div>
+
+  <div class="rule"><h2><span class="n">14</span>Structure beats adjectives</h2>
+    <p>A sentence-by-sentence spec ("Sentence 2: biggest achievement with data") outperforms adjective stacking ("high-impact, measurable, results-focused"). Tell it the shape, not the vibe.</p></div>
+
+  <div class="rule"><h2><span class="n">15</span>Cut the theater, keep the forcing function</h2>
+    <p>The model can't "look for 10 seconds" — it's stage direction. The "single biggest doubt" constraint is what actually does the work. Keep the constraint, drop the play-acting.</p></div>
+
+  <div class="rule"><h2><span class="n">16</span>Ask for two variants</h2>
+    <p>Choosing between options beats editing one draft. Two versions cost little and give you something to react against.</p>
+    <p class="ex"><span class="good">"Write two versions — I'll pick."</span></p></div>
+
+  <div class="demo"><h2>Demo</h2>
+    <p><span class="bad">Bloated:</span> "Hello! I hope you're well. Could you please write me a short story about a robot? Maybe ~300 words, kind of sad but hopeful? Thank you so much!"</p>
+    <p style="margin-top:8px;"><span class="good">Tight:</span> "Write a 300-word story: a robot, sad but hopeful tone."</p>
+    <p style="margin-top:8px;">Same result, a third of the tokens.</p></div>
+
+  <p class="foot">Made with 💜 by Silva · Living document — updated with your personal fixes as we go · Oct 2026</p>
+</div>
+</body>
+</html>
