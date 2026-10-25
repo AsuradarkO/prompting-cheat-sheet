@@ -1,7 +1,7 @@
 # Japanese Anime Studio — Model-Agnostic Animation Prompt
 
 Adapted from the Awesome Opus 5.5 Videos collection, for use with any AI agent — not just Claude.
-Nothing here has been published to GitHub.
+Published to AsuradarkO/prompting-cheat-sheet as anime-studio-prompt.md.
 
 ## Source (honest attribution)
 
