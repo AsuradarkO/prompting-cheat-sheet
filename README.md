@@ -1,6 +1,6 @@
 # Tight Prompting — 16 rules for token-efficient prompts
 
-A living cheat sheet for writing prompts that cost less and do more. Each rule was earned the hard way: a real prompt went wrong, the failure got diagnosed, and the fix became a rule. Open `prompting-cheat-sheet.html` in a browser for the interactive version with demos.
+A living cheat sheet for writing prompts that cost less and do more. Each rule was earned the hard way: a real prompt went wrong, the failure got diagnosed, and the fix became a rule. Open `prompting-cheat-sheet.html` in a browser for the interactive version with demos. See `tight-prompting/SKILL.md` for a ready-to-use skill that applies these 16 rules to rewrite bloated prompts.
 
 ## The 16 rules
 
