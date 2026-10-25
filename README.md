@@ -4,24 +4,27 @@ A living cheat sheet for writing prompts that cost less and do more. Each rule w
 
 ## The 16 rules
 
-Rules are listed in numeric order. Efficiency = structure & brevity; Behavior = model psychology.
+Split into two types. Rule numbers are global (1–16 across both groups), so each group lists its rules in numeric order — the numbers do not restart per group.
 
-1. Lead with the verb — Efficiency
-2. Dictate the output shape — Efficiency
-3. Cut politeness padding — Efficiency
-4. Show, don't describe — Efficiency
-5. Never restate — Efficiency
-6. Split big tasks — Efficiency
-7. Describe fully: goal, audience, format, constraints — Behavior
-8. Discern before you ship — Behavior
-9. One persona per prompt — Behavior
-10. No fake-precision scores — Behavior
-11. Demand replacement text, not advice — Behavior
-12. Prohibitions need an outlet — Behavior
-13. One job per prompt — but different readers count as different jobs — Efficiency
-14. Structure beats adjectives — Efficiency
-15. Cut the theater, keep the forcing function — Behavior
-16. Ask for two variants — Efficiency
+### Efficiency (structure & brevity) — 9 rules
+1. Lead with the verb
+2. Dictate the output shape
+3. Cut politeness padding
+4. Show, don't describe
+5. Never restate
+6. Split big tasks
+13. One job per prompt — but different readers count as different jobs
+14. Structure beats adjectives
+16. Ask for two variants
+
+### Behavior (model psychology) — 7 rules
+7. Describe fully: goal, audience, format, constraints
+8. Discern before you ship
+9. One persona per prompt
+10. No fake-precision scores
+11. Demand replacement text, not advice
+12. Prohibitions need an outlet
+15. Cut the theater, keep the forcing function
 
 ## How it's used
 
