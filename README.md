@@ -4,7 +4,7 @@ A living cheat sheet for writing prompts that cost less and do more. Each rule w
 
 ## The 16 rules
 
-Split into two types. Rule numbers are global (1–16 across both groups), so each group lists its rules in numeric order — the numbers do not restart per group.
+Split into two types. Efficiency rules keep their original numbers; Behavior rules are numbered 1–7 within their group.
 
 ### Efficiency (structure & brevity) — 9 rules
 1. Lead with the verb
@@ -18,13 +18,13 @@ Split into two types. Rule numbers are global (1–16 across both groups), so ea
 16. Ask for two variants
 
 ### Behavior (model psychology) — 7 rules
-7. Describe fully: goal, audience, format, constraints
-8. Discern before you ship
-9. One persona per prompt
-10. No fake-precision scores
-11. Demand replacement text, not advice
-12. Prohibitions need an outlet
-15. Cut the theater, keep the forcing function
+1. Describe fully: goal, audience, format, constraints
+2. Discern before you ship
+3. One persona per prompt
+4. No fake-precision scores
+5. Demand replacement text, not advice
+6. Prohibitions need an outlet
+7. Cut the theater, keep the forcing function
 
 ## How it's used
 
